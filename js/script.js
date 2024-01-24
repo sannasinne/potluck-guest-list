@@ -49,15 +49,23 @@ const updateGuestCount = function () {
 
 const assignItems = function () {
   const potluckItems = ["potato salad", "hummus", "cookies", "fruit", "chips", "ice cream", "carrot cake", "cinnamon bun", "beer", "sausace", "corn", "chocolate"];
-}
 
-const allGuests = document.querySelectorAll(".guest-list li");
 
-for (let guest of allGuests) {
-  let randomPotluckIndex = Math.floor(Math.random() * potluckItems.length);
-  let randomPotluckItem = potluckItems[randomPotluckIndex];
+  const allGuests = document.querySelectorAll(".guest-list li");
 
-  let listItem = document.createElement("li");
-  listItem.innerText = `${guest.innerText} is bringing ${randomPotluckItem}.`;
-  assignedItems.append(listItem);
-}
+  for (let guest of allGuests) {
+    let randomPotluckIndex = Math.floor(Math.random() * potluckItems.length);
+    let randomPotluckItem = potluckItems[randomPotluckIndex];
+
+    let listItem = document.createElement("li");
+    listItem.innerText = `${guest.innerText} is bringing ${randomPotluckItem}.`;
+    assignedItems.append(listItem);
+
+    potluckItems.splice(randomPotluckIndex, 1);
+  }
+};
+
+assignButton.addEventListener("click", function () {
+  assignItems();
+  assignButton.disabled = true;
+});
