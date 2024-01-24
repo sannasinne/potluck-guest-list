@@ -11,6 +11,9 @@ const guestCount = document.querySelector(".attendance");
 // alert when guest list is full (not yet visible)
 const guestFull = document.querySelector(".alert");
 
+const assignButton = document.querySelector(".assign");
+const assignedItems = document.querySelector(".assigned-items");
+
 addGuestButton.addEventListener("click", function (e) {
   const guest = guestInput.value;
   // console.log(guest);
@@ -43,3 +46,7 @@ const updateGuestCount = function () {
     guestFull.classList.remove("hide");
   }
 };
+
+const assignItems = function () {
+  const potluckItems = ["potato salad", "hummus", "cookies", "fruit", "chips", "ice cream", "carrot cake", "cinnamon bun", "beer", "sausace", "corn", "chocolate"];
+}
